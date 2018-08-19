@@ -125,3 +125,32 @@ print("hellow world")
 # print(name[1:-1]) # 取 下标为1开始 到 倒数第2个 之间的字符 bcde
 # name2 = '0123456789'
 # print(name2[1:-1:3]) # 取 下标为1开始 到 倒数第2个 之间的字符 步长为3 147
+
+# num = 222
+# str1 = str(num)
+# num1 = int(str1)
+# print(str1)
+# print(num1+"aa")
+
+# split()的特殊用法
+# text="asad asd \t as\tdnksad nsad s adsa\tdsd\tsd sad sa dsa d asd as ds\tapkjgf oij"
+# print(text.split())
+# ['asad', 'asd', 'as', 'dnksad', 'nsad', 's', 'adsa', 'dsd', 'sd', 'sad', 'sa', 'dsa', 'd', 'asd', 'as', 'ds', 'apkjgf', 'oij']
+
+# 列表
+# namesList = ['aaa','bbb','ccc']
+# for name in namesList:
+#     print(name)
+
+# 列表的常用操作
+#待查找的列表
+nameList = ['xiaoWang','xiaoZhang','xiaoHua']
+
+#获取用户要查找的名字
+findName = input('请输入要查找的姓名:')
+
+#查找是否存在
+if findName in nameList:
+    print('在字典中找到了相同的名字')
+else:
+    print('没有找到')
