@@ -110,9 +110,18 @@ print("hellow world")
 #         break
 #     print(x)
 
-name = 'test'
-for x in name:
-    if(x=='s'):
-        print('循环跳出')
-        continue
-    print(x)
+# name = 'test'
+# for x in name:
+#     if(x=='s'):
+#         print('循环跳出')
+#         continue
+#     print(x)
+
+# 字符串-切片
+# name = 'abcdef'
+# print(name[0:3]) # 取 下标0~2 的字符 abc
+# print(name[0:5]) # 取 下标为0~4 的字符 abcde
+# print(name[2:]) # 取 下标为2开始到最后的字符 cdef
+# print(name[1:-1]) # 取 下标为1开始 到 倒数第2个 之间的字符 bcde
+# name2 = '0123456789'
+# print(name2[1:-1:3]) # 取 下标为1开始 到 倒数第2个 之间的字符 步长为3 147
