@@ -84,14 +84,35 @@ print("hellow world")
 # print("九九乘法表完成\n")
 
 # 猜拳游戏
-import random
-player = int(input("请输入：剪刀(0)，石头(1)，布(2) : "))
-computer =random.randint(0,2)
-print("="*30,"电脑出的是%d"%computer)
-if (player==0 and computer==2) or (player==1 and computer==0) or (player==2 and computer==1):
-    print("玩家获胜")
-elif player==computer:
-    print("平局")
-else:
-    print("玩家失败")
-print("="*30)
+# import random
+# player = int(input("请输入：剪刀(0)，石头(1)，布(2) : "))
+# computer =random.randint(0,2)
+# print("="*30,"电脑出的是%d"%computer)
+# if (player==0 and computer==2) or (player==1 and computer==0) or (player==2 and computer==1):
+#     print("玩家获胜")
+# elif player==computer:
+#     print("平局")
+# else:
+#     print("玩家失败")
+# print("="*30)
+
+# for循环
+# name = 'test'
+# for x in name:
+#     print(x)
+# else:
+#     print("没有数据")
+
+# name = 'test'
+# for x in name:
+#     if(x=='s'):
+#         print('循环跳出')
+#         break
+#     print(x)
+
+name = 'test'
+for x in name:
+    if(x=='s'):
+        print('循环跳出')
+        continue
+    print(x)
