@@ -138,12 +138,19 @@ print("hellow world")
 # ['asad', 'asd', 'as', 'dnksad', 'nsad', 's', 'adsa', 'dsd', 'sd', 'sad', 'sa', 'dsa', 'd', 'asd', 'as', 'ds', 'apkjgf', 'oij']
 
 # 列表
-namesList = ['aaa','bbb','ccc']
+# namesList = ['aaa','bbb','ccc']
 # for name in namesList:
 #     print(name)
 # 带下标索引的遍历
-for i,value in enumerate(namesList):
-    print(i,value)
+# for i,value in enumerate(namesList):
+#     print(i,value)
+
+# 元组
+a = (11,22)
+b = a 
+print(b) # b=(11,22)
+c,d = a 
+print(c,d) # c=11 , d=22 拆包 unpack
 
 # 列表的常用操作
 #待查找的列表
