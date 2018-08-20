@@ -138,19 +138,37 @@ print("hellow world")
 # ['asad', 'asd', 'as', 'dnksad', 'nsad', 's', 'adsa', 'dsd', 'sd', 'sad', 'sa', 'dsa', 'd', 'asd', 'as', 'ds', 'apkjgf', 'oij']
 
 # 列表
-# namesList = ['aaa','bbb','ccc']
+namesList = ['aaa','bbb','ccc']
 # for name in namesList:
 #     print(name)
+# 带下标索引的遍历
+for i,value in enumerate(namesList):
+    print(i,value)
 
 # 列表的常用操作
 #待查找的列表
-nameList = ['xiaoWang','xiaoZhang','xiaoHua']
+# nameList = ['xiaoWang','xiaoZhang','xiaoHua']
 
 #获取用户要查找的名字
-findName = input('请输入要查找的姓名:')
+# findName = input('请输入要查找的姓名:')
 
 #查找是否存在
-if findName in nameList:
-    print('在字典中找到了相同的名字')
-else:
-    print('没有找到')
+# if findName in nameList:
+#     print('在字典中找到了相同的名字')
+# else:
+#     print('没有找到')
+
+# # 循环遍历字典
+# dict1 = {'name':'abc','age':18}
+# # 遍历key键
+# for key in dict1.keys():
+#     print(key)
+# # 遍历value值
+# for value in dict1.values():
+#     print(value)
+# # 遍历item元素
+# for item in dict1.items():
+#     print(item)
+# # 遍历key-value键值对
+# for key,value in dict1.items():
+#     print(key,value)
