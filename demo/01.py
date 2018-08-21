@@ -251,15 +251,44 @@ print("hellow world")
 # func(1,2,lambda x,y:x+y)
 
 # 匿名函数指定规则进行排序
-data=[
-    {"name":"zhangsan", "age":18}, 
-    {"name":"lisi", "age":19}, 
-    {"name":"wangwu", "age":17}
-]
-# 按name排序
-data.sort(key=lambda x:x['name'])
-print(data)
+# data=[
+#     {"name":"zhangsan", "age":18}, 
+#     {"name":"lisi", "age":19}, 
+#     {"name":"wangwu", "age":17}
+# ]
+# # 按name排序
+# data.sort(key=lambda x:x['name'])
+# print(data)
 
-# 按age排序
-data.sort(key=lambda x:x['age'])
-print(data)
+# # 按age排序
+# data.sort(key=lambda x:x['age'])
+# print(data)
+
+
+# a=123
+# b=a
+# a=1234
+# print(a,b) # 1234,123
+
+# a="hello"
+# b=a
+# a="hellowword"
+# print(a,b) # hellowword hello
+
+# a=('a','b','c')
+# b=a
+# a=('a','b','c','d')
+# print(a,b) # ('a', 'b', 'c', 'd') ('a', 'b', 'c')
+
+# a=['a','b','c']
+# b=a
+# a=['a','b','c','d']
+# print(a,b) # ['a', 'b', 'c', 'd'] ['a', 'b', 'c', 'd']
+
+# a="hello"
+# # a[0]="w" # 报错'str' object does not support item assignment
+# print(a)
+
+# a="hello"
+# # a[0]="w" # 报错'str' object does not support item assignment
+# print(a)
