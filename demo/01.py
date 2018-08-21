@@ -3,9 +3,9 @@
 # python2执行有中文汉字的文件时会报错，需要在文件顶部加上编码
 
 # 注释
-'''
+"""
 print("hellow world")
-'''
+"""
 # print("hellowwww")
 
 # 输入与输出
@@ -146,20 +146,20 @@ print("hellow world")
 #     print(i,value)
 
 # 元组
-a = (11,22)
-b = a 
-print(b) # b=(11,22)
-c,d = a 
-print(c,d) # c=11 , d=22 拆包 unpack
+# a = (11, 22)
+# b = a
+# print(b)  # b=(11,22)
+# c, d = a
+# print(c, d)  # c=11 , d=22 拆包 unpack
 
 # 列表的常用操作
-#待查找的列表
+# 待查找的列表
 # nameList = ['xiaoWang','xiaoZhang','xiaoHua']
 
-#获取用户要查找的名字
+# 获取用户要查找的名字
 # findName = input('请输入要查找的姓名:')
 
-#查找是否存在
+# 查找是否存在
 # if findName in nameList:
 #     print('在字典中找到了相同的名字')
 # else:
@@ -179,3 +179,87 @@ print(c,d) # c=11 , d=22 拆包 unpack
 # # 遍历key-value键值对
 # for key,value in dict1.items():
 #     print(key,value)
+
+# 全局变量和局部变量名字相同时
+# a = 100
+# def func1():
+#     print("=======func1=======")
+#     # print(a) # 首先会在局部变量之中寻找是否存在，如果存在则不会获取全局变量
+#     a=200
+#     print(a) # 200 局部变量
+
+# def func2():
+#     print("=======func2=======")
+#     print(a) # 100 全局变量
+
+# def func3():
+#     print("=======func3=======")
+#     global a # 此处讲a提升为全局变量，并且使全局变量可修改
+#     print(a) # 100 全局变量
+#     a=300 # 修改了全局变量
+#     print(a) # 300
+
+# print("global_before:",a) # 100 初始a的值
+
+# func1()
+# func2()
+# func3()
+
+# print("global_after:",a) # 300 此时a的值已经被func3修改了
+
+# 默认参数
+# def printinfo(age = 35):
+#    print("Age:",age)
+
+# printinfo() # Age: 35
+# printinfo(age = 9) # Age: 9
+
+# 不定长参数 基本语法
+# def functionname([formal_args,] *args, **kwargs):
+#    "函数_文档字符串"
+#    function_suite
+#    return [expression]
+# def func(a,b,*args,**kwargs):
+#     print("a:",a)
+#     print("b:",b)
+#     print("args:",args)
+#     # print("kwargs:",kwargs)
+#     for key,value in kwargs.items():
+#         print(key,":",value)
+
+# c=(3,4,5)
+# d=["a","b","c"]
+# f={"name":"abc"}
+# func(1,2,6,7,*c,*d,**f)
+# a: 1
+# b: 2
+# args: (6, 7, 3, 4, 5, 'a', 'b', 'c') # 多于a，b的参数会被存在数组args中
+# name : abc # kwargs需要for key,value in kwargs.items()进行处理
+
+# 匿名函数
+# sum = lambda arg1, arg2: arg1 + arg2
+
+# print("Value of total : ", sum( 10, 20 ))
+# print("Value of total : ", sum( 20, 20 ))
+
+# 匿名函数作为参数传递
+# def func(a,b,funcL):
+#     print("a:",a)
+#     print("b:",b)
+#     print("result=",funcL(a,b))
+
+# func(1,2,lambda x,y:x+y)
+
+# 匿名函数指定规则进行排序
+data=[
+    {"name":"zhangsan", "age":18}, 
+    {"name":"lisi", "age":19}, 
+    {"name":"wangwu", "age":17}
+]
+# 按name排序
+data.sort(key=lambda x:x['name'])
+print(data)
+
+# 按age排序
+data.sort(key=lambda x:x['age'])
+print(data)
