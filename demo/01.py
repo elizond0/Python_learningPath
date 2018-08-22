@@ -292,3 +292,13 @@ print("hellow world")
 # a="hello"
 # # a[0]="w" # 报错'str' object does not support item assignment
 # print(a)
+
+# a=100 # @1
+a=[100] # @2
+def test(num):
+    # num+=num
+    num=num+num
+    print(num)
+
+test(a) # @1 200 ; @2 [100,100] ；@3 [100,100]
+print(a) # @1 100 ; @2 [100,100] ； @3 [100]
