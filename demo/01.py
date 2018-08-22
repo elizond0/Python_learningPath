@@ -326,24 +326,65 @@ print("hellow world")
 # copy(filename,newfilename)
 
 # 大文件复制备份
-def copy(file,newfile):
-    content=''
-    tmp=''
-    f1=open(file)
-    # content=f1.read() # 如果遇到大文件时，read读取所有内容是非常容易内存报错的
-    while True:
-        tmp=f1.read(1024) # read的单位是字节
-        content+=tmp
-        if len(tmp)==0:
-            break
+# def copy(file,newfile):
+#     content=''
+#     tmp=''
+#     f1=open(file)
+#     # content=f1.read() # 如果遇到大文件时，read读取所有内容是非常容易内存报错的
+#     while True:
+#         tmp=f1.read(1024) # read的单位是字节
+#         content+=tmp
+#         if len(tmp)==0:
+#             break
 
-    f2=open(newfile,'w')
-    f2.write(content) # write 只接受字符串参数
+#     f2=open(newfile,'w')
+#     f2.write(content) # write 只接受字符串参数
 
-    f1.close()
-    f2.close()
+#     f1.close()
+#     f2.close()
 
-filename = input("请输入要复制的文件名：")
-newfilename = input("请输入备份文件的名字：")
+# filename = input("请输入要复制的文件名：")
+# newfilename = input("请输入备份文件的名字：")
 
-copy(filename,newfilename)
+# copy(filename,newfilename)
+
+# # 定位读写
+# f1=open('test.txt')
+# f1.read(2)
+# position=f1.tell()
+# print(position) # 2
+# f1.close()
+
+# 重设文件读写的位置
+# f1=open('test.txt')
+# f1.read(2)
+# position=f1.tell()
+# print(position) # 2
+
+# f1.seek(0,0) # 将文件定位到头部
+# position=f1.tell()
+# print(position) # 0
+
+# f1.close()
+
+# import os
+# print(os.listdir("./"))
+
+# 批量重命名
+import os
+floder_path='testDir'
+# floder_path=input("请输入需要批量重命名的文件夹路径：")
+floder_list=os.listdir(floder_path) # 获取文件列表
+customStr='文件前缀-' # 自定义前缀
+# os.chdir(floder_path) # 更改操作路径
+# print(os.getcwd()) # 当前操作的绝对路径
+for name in floder_list:
+    if name.find(customStr)>-1:
+        continue # 如果要添加的前缀已经存在，则不进行追加
+    # print(name.find(customStr))
+
+    old_file_path=floder_path+'/'+name
+    new_file_path=floder_path+'/'+ customStr + name
+
+    # print(old_file_path,new_file_path)
+    os.rename(old_file_path,new_file_path)
