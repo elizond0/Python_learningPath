@@ -294,11 +294,56 @@ print("hellow world")
 # print(a)
 
 # a=100 # @1
-a=[100] # @2
-def test(num):
-    # num+=num
-    num=num+num
-    print(num)
+# a=[100] # @2
+# def test(num):
+#     # num+=num
+#     num=num+num
+#     print(num)
 
-test(a) # @1 200 ; @2 [100,100] ；@3 [100,100]
-print(a) # @1 100 ; @2 [100,100] ； @3 [100]
+# test(a) # @1 200 ; @2 [100,100] ；@3 [100,100]
+# print(a) # @1 100 ; @2 [100,100] ； @3 [100]
+
+# 文件读写
+# f=open("./demo/test.txt",'w+')
+# f.write('abc')
+# f.close()
+
+# 文件复制备份
+# def copy(file,newfile):
+#     f1=open(file)
+#     content=f1.read()
+#     f1.close()
+
+#     print(content)
+
+#     f2=open(newfile,'w')
+#     f2.write(content)
+#     f2.close()
+
+# filename = input("请输入要复制的文件名：")
+# newfilename = input("请输入备份文件的名字：")
+
+# copy(filename,newfilename)
+
+# 大文件复制备份
+def copy(file,newfile):
+    content=''
+    tmp=''
+    f1=open(file)
+    # content=f1.read() # 如果遇到大文件时，read读取所有内容是非常容易内存报错的
+    while True:
+        tmp=f1.read(1024) # read的单位是字节
+        content+=tmp
+        if len(tmp)==0:
+            break
+
+    f2=open(newfile,'w')
+    f2.write(content) # write 只接受字符串参数
+
+    f1.close()
+    f2.close()
+
+filename = input("请输入要复制的文件名：")
+newfilename = input("请输入备份文件的名字：")
+
+copy(filename,newfilename)
