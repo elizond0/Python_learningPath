@@ -252,8 +252,8 @@ print("hellow world")
 
 # 匿名函数指定规则进行排序
 # data=[
-#     {"name":"zhangsan", "age":18}, 
-#     {"name":"lisi", "age":19}, 
+#     {"name":"zhangsan", "age":18},
+#     {"name":"lisi", "age":19},
 #     {"name":"wangwu", "age":17}
 # ]
 # # 按name排序
@@ -371,20 +371,145 @@ print("hellow world")
 # print(os.listdir("./"))
 
 # 批量重命名
-import os
-floder_path='testDir'
-# floder_path=input("请输入需要批量重命名的文件夹路径：")
-floder_list=os.listdir(floder_path) # 获取文件列表
-customStr='文件前缀-' # 自定义前缀
-# os.chdir(floder_path) # 更改操作路径
-# print(os.getcwd()) # 当前操作的绝对路径
-for name in floder_list:
-    if name.find(customStr)>-1:
-        continue # 如果要添加的前缀已经存在，则不进行追加
-    # print(name.find(customStr))
+# import os
+# floder_path='testDir'
+# # floder_path=input("请输入需要批量重命名的文件夹路径：")
+# floder_list=os.listdir(floder_path) # 获取文件列表
+# customStr='文件前缀-' # 自定义前缀
+# # os.chdir(floder_path) # 更改操作路径
+# # print(os.getcwd()) # 当前操作的绝对路径
+# for name in floder_list:
+#     if name.find(customStr)>-1:
+#         continue # 如果要添加的前缀已经存在，则不进行追加
+#     # print(name.find(customStr))
 
-    old_file_path=floder_path+'/'+name
-    new_file_path=floder_path+'/'+ customStr + name
+#     old_file_path=floder_path+'/'+name
+#     new_file_path=floder_path+'/'+ customStr + name
 
-    # print(old_file_path,new_file_path)
-    os.rename(old_file_path,new_file_path)
+#     # print(old_file_path,new_file_path)
+#     os.rename(old_file_path,new_file_path)
+
+# 类和对象
+# class Car:
+#     def getCarInfo(self):
+#         print('车的信息')
+
+#     def moveCar(self):
+#         print('车在移动')
+
+# BMW = Car()
+# BMW.getCarInfo()
+# BMW.moveCar()
+
+# BMW.color='black'
+# print(BMW.color) # black
+
+# QQ = Car()
+# # print(QQ.color) # 报错，实例的属性不会影响类
+
+# 类的公有属性
+# class Car:
+#     def __init__(self, *args, **kwargs):
+#         self.color='blue'
+
+#     def getCarInfo(self):
+#         print('车的信息')
+
+#     def moveCar(self):
+#         print('车在移动')
+
+# BMW = Car()
+# BMW.getCarInfo()
+# BMW.moveCar()
+
+# BMW.color='black'
+# print(BMW.color) # black
+
+# QQ = Car()
+# print(QQ.color) # blue
+
+# class Car:
+#     def __init__(self, *args, **kwargs):
+#         self.color='blue' # 此时self指向的是实例的引用地址 <__main__.Car object at 0x00000168C5D0FF98>
+#         self.name='' # 由于类的方法用到name属性，此时声明可以避免报错
+#         if len(args)>0:
+#             self.name=args[0] # 使用参数列表，可以在创建实例时直接传入属性值
+
+#     def getCarInfo(self):
+#         print('%s车的信息'%self.name)
+
+#     def moveCar(self):
+#         print('%s车在移动'%self.name)
+
+#     def introduce(self):
+#         self.getCarInfo()
+#         self.moveCar()
+
+# BMW = Car('BMW')
+# # BMW.name='BMW'
+# BMW.introduce()
+
+# BMW2 = Car()
+# BMW2.introduce()
+
+# class Car:
+#     def __init__(self, *args, **kwargs):
+#         self.color='blue' # 此时self指向的是实例的引用地址 <__main__.Car object at 0x00000168C5D0FF98>
+#         self.name='' # 由于类的方法用到name属性，此时声明可以避免报错
+#         if len(args)>0:
+#             self.name=args[0] # 使用参数列表，可以在创建实例时直接传入属性值
+
+#         self.introduce()
+
+#     def __str__(self):
+#         return 'self' # __str__必须要有返回值
+
+#     def getCarInfo(self):
+#         print('%s车的信息'%self.name)
+
+#     def moveCar(self):
+#         print('%s车在移动'%self.name)
+
+#     def introduce(self):
+#         self.getCarInfo()
+#         self.moveCar()
+
+# BMW = Car('BMW')
+# BMW2 = Car()
+# print(BMW) # self
+
+
+class Car:
+    def __init__(self, args, **kwargs):
+        self.color = (
+            "blue"
+        )  # 此时self指向的是实例的引用地址 <__main__.Car object at 0x00000168C5D0FF98>
+        self.name = ""  # 由于类的方法用到name属性，此时声明可以避免报错
+        if len(args) > 0:
+            self.name = args[0]  # 使用参数列表，可以在创建实例时直接传入属性值
+            # args[0] = "BMW"  # 如果将args转回list类型，则全局变量会被修改
+            customName=args
+            customName[0] = "BMW" # 由于py中变量的赋值是改变引用地址的指向，所以即使重新生命了私有变量，依然会污染全局变量
+
+        self.introduce()
+
+    def __str__(self):
+        return "self"  # __str__必须要有返回值
+
+    def getCarInfo(self):
+        print("%s车的信息" % self.name)
+
+    def moveCar(self):
+        print("%s车在移动" % self.name)
+
+    def introduce(self):
+        self.getCarInfo()
+        self.moveCar()
+
+
+nameB = ["MSN", "MMM"]
+BMW = Car(nameB)
+BMW2 = Car(nameB)
+print(nameB) # ['BMW', 'MMM']
+# 可以发现全局变量nameB已经被修改了，因此在传入不可变类型的全局变量时，在类中禁止对参数进行重新赋值
+
