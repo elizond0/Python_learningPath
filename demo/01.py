@@ -479,37 +479,151 @@ print("hellow world")
 # print(BMW) # self
 
 
-class Car:
-    def __init__(self, args, **kwargs):
-        self.color = (
-            "blue"
-        )  # 此时self指向的是实例的引用地址 <__main__.Car object at 0x00000168C5D0FF98>
-        self.name = ""  # 由于类的方法用到name属性，此时声明可以避免报错
-        if len(args) > 0:
-            self.name = args[0]  # 使用参数列表，可以在创建实例时直接传入属性值
-            # args[0] = "BMW"  # 如果将args转回list类型，则全局变量会被修改
-            customName=args
-            customName[0] = "BMW" # 由于py中变量的赋值是改变引用地址的指向，所以即使重新生命了私有变量，依然会污染全局变量
+# class Car:
+#     def __init__(self, args, **kwargs):
+#         self.color = (
+#             "blue"
+#         )  # 此时self指向的是实例的引用地址 <__main__.Car object at 0x00000168C5D0FF98>
+#         self.name = ""  # 由于类的方法用到name属性，此时声明可以避免报错
+#         if len(args) > 0:
+#             self.name = args[0]  # 使用参数列表，可以在创建实例时直接传入属性值
+#             # args[0] = "BMW"  # 如果将args转回list类型，则全局变量会被修改
+#             customName=args
+#             customName[0] = "BMW" # 由于py中变量的赋值是改变引用地址的指向，所以即使重新生命了私有变量，依然会污染全局变量
 
-        self.introduce()
+#         self.introduce()
 
-    def __str__(self):
-        return "self"  # __str__必须要有返回值
+#     def __str__(self):
+#         return "self"  # __str__必须要有返回值
 
-    def getCarInfo(self):
-        print("%s车的信息" % self.name)
+#     def getCarInfo(self):
+#         print("%s车的信息" % self.name)
 
-    def moveCar(self):
-        print("%s车在移动" % self.name)
+#     def moveCar(self):
+#         print("%s车在移动" % self.name)
 
-    def introduce(self):
-        self.getCarInfo()
-        self.moveCar()
+#     def introduce(self):
+#         self.getCarInfo()
+#         self.moveCar()
 
 
-nameB = ["MSN", "MMM"]
-BMW = Car(nameB)
-BMW2 = Car(nameB)
-print(nameB) # ['BMW', 'MMM']
-# 可以发现全局变量nameB已经被修改了，因此在传入不可变类型的全局变量时，在类中禁止对参数进行重新赋值
+# nameB = ["MSN", "MMM"]
+# BMW = Car(nameB)
+# BMW2 = Car(nameB)
+# print(nameB) # ['BMW', 'MMM']
+# # 可以发现全局变量nameB已经被修改了，因此在传入不可变类型的全局变量时，在类中禁止对参数进行重新赋值
 
+# 私邮方法和私有属性
+# class Cars:
+#     def __init__(self,producer):
+#         self.__producer=producer
+
+#     def set_name(self,attr):
+#         self.attr=attr
+#         self.__success('set_name')
+
+#     def __success(self,msg):
+#         print('%s成功'%msg)
+
+#     def get_producer(self):
+#         print(self.__producer)
+
+# bmw=Cars('生产者：哈哈哈')
+# bmw.set_name('bmw') # set_name成功
+# # bmw.__success('调用') # 会报错，私有方法仅在对象内部可以调用
+# bmw.get_producer() # 生产者：哈哈哈
+# # print(bmw.__producer) # 报错，私有属性不可被外部直接调用
+
+# __del__方法
+# class Cars:
+#     def __del__(self):
+#         print('del方法被调用')
+
+# newCar=Cars()
+# oldCar=newCar
+# # 对象的引用地址的链接数,比实际数量大1
+# import sys
+# print(sys.getrefcount(newCar)) # 3
+
+# del newCar
+# print(sys.getrefcount(oldCar)) # 2
+# print('准备删除对象newCar')
+# print('='*20)
+# # 准备删除对象newCar
+# # del方法被调用
+# # =============
+
+# # 这里由于有2个对象指向同一个引用地址，引用地址的链接为2
+# # 删除对象的引用地址的链接大于1时，del方法会被异步执行，而不是立即调用
+
+# 继承
+# # 父类
+# class Animal:
+#     def eat(self):
+#         print('吃')
+
+#     def drint(self):
+#         print('喝')
+
+#     def sleep(self):
+#         print('睡')
+
+# # cat=Animal()
+# # cat.eat() # 吃
+
+# # 子类
+# class Dog(Animal):
+#     def bark(self):
+#         print('汪汪')
+
+# # dog1=Dog()
+# # dog1.eat() # 吃
+# # dog1.bark() # 汪汪
+
+# class FlyDog(Dog):
+#     def fly(self):
+#         print('飞天狗')
+
+#     # 重写bark方法
+#     def bark(self):
+#         print('飞天狗汪汪叫')
+
+#         # 调用被重写的方法
+#         # 方法1 调用方法的所属类名.方法(self)，参数self必传
+#         Dog.bark(self) # 汪汪
+#         # 方法2 super()表示上一级的类
+#         super().bark() # 汪汪
+
+# flydog1=FlyDog()
+# flydog1.eat() # 吃
+# flydog1.bark() # 飞天狗汪汪叫
+# flydog1.fly() # 飞天狗
+
+# 多继承
+# # 定义一个父类
+# class A:
+#     def printA(self):
+#         print('----A----')
+
+# # 定义一个父类
+# class B:
+#     def printB(self):
+#         print('----B----')
+
+#     def test(self):
+#         print('test-A')
+
+# # 定义一个子类，继承自A、B
+# class C(A,B):
+#     def printC(self):
+#         print('----C----')
+
+#     def test(self):
+#         print('test-B')
+
+# obj_C = C()
+# obj_C.printA() # ----A----
+# obj_C.printB() # ----B----
+# obj_C.test() # test-B 按照对象搜索方法是的先后顺序
+# print(C.__mro__) #可以查看C类的对象搜索方法时的先后顺序
+# # (<class '__main__.C'>, <class '__main__.A'>, <class '__main__.B'>, <class 'object'>)
