@@ -489,7 +489,7 @@ print("hellow world")
 #             self.name = args[0]  # 使用参数列表，可以在创建实例时直接传入属性值
 #             # args[0] = "BMW"  # 如果将args转回list类型，则全局变量会被修改
 #             customName=args
-#             customName[0] = "BMW" # 由于py中变量的赋值是改变引用地址的指向，所以即使重新生命了私有变量，依然会污染全局变量
+#             customName[0] = "BMW" # 由于py中变量的赋值是改变引用地址的指向，所以即使重新声明了私有变量，依然会污染全局变量
 
 #         self.introduce()
 
@@ -627,3 +627,5 @@ print("hellow world")
 # obj_C.test() # test-B 按照对象搜索方法是的先后顺序
 # print(C.__mro__) #可以查看C类的对象搜索方法时的先后顺序
 # # (<class '__main__.C'>, <class '__main__.A'>, <class '__main__.B'>, <class 'object'>)
+
+# 类属性和实例属性
