@@ -628,4 +628,7 @@ print("hellow world")
 # print(C.__mro__) #可以查看C类的对象搜索方法时的先后顺序
 # # (<class '__main__.C'>, <class '__main__.A'>, <class '__main__.B'>, <class 'object'>)
 
-# 类属性和实例属性
+
+
+
+
