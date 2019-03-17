@@ -2,7 +2,7 @@
 # 记录所有名片的列表容器
 card_list = [{'name': 'a',
               'age': '16',
-              'sexual': '男',
+              'gender': '男',
               'phone': '150', }]
 
 
@@ -27,13 +27,13 @@ def create_card():
     # 记录用户输入的个人信息
     name_str = input('请输入姓名：')
     age_str = input('请输入年龄：')
-    sexual_str = input('请输入性别：')
+    gender_str = input('请输入性别：')
     phone_str = input('请输入电话：')
 
     card_dict = {
         'name': name_str,
         'age': age_str,
-        'sexual': sexual_str,
+        'gender': gender_str,
         'phone': phone_str,
     }
 
@@ -58,7 +58,7 @@ def show_all():
     print('=' * 60)
     for card_dict in card_list:
         print(
-            '%s\t\t%s\t\t%s\t\t%s' % (card_dict['name'], card_dict['age'], card_dict['sexual'], card_dict['phone']))
+            '%s\t\t%s\t\t%s\t\t%s' % (card_dict['name'], card_dict['age'], card_dict['gender'], card_dict['phone']))
 
 
 # 查询名片
@@ -76,7 +76,7 @@ def search_card():
             print('=' * 60)
             print(
                 '%s\t\t%s\t\t%s\t\t%s' % (
-                    card_dict['name'], card_dict['age'], card_dict['sexual'], card_dict['phone']))
+                    card_dict['name'], card_dict['age'], card_dict['gender'], card_dict['phone']))
 
             deal_card(card_dict)
             break
@@ -107,7 +107,7 @@ def del_card(find_dict):
 def modify_card(find_dict):
     find_dict['name'] = input_card_handler(find_dict['name'], '姓名：')
     find_dict['age'] = input_card_handler(find_dict['age'], '年龄：')
-    find_dict['sexual'] = input_card_handler(find_dict['sexual'], '性别：')
+    find_dict['gender'] = input_card_handler(find_dict['gender'], '性别：')
     find_dict['phone'] = input_card_handler(find_dict['phone'], '电话：')
     print('修改名片成功！')
 
