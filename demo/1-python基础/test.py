@@ -628,7 +628,6 @@ print("hellow world")
 # print(C.__mro__) #可以查看C类的对象搜索方法时的先后顺序
 # # (<class '__main__.C'>, <class '__main__.A'>, <class '__main__.B'>, <class 'object'>)
 
-
-
-
-
+# 格式化字符串 %s-string %d-int %.2f-float
+info_tuple = ("小明", 21, 1.85)
+print("%s 年龄是 %d 身高是 %.2f" % info_tuple)
