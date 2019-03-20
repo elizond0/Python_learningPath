@@ -6,6 +6,8 @@
 """
 print("hellow world")
 """
+
+
 # print("hellowwww")
 
 # 输入与输出
@@ -629,5 +631,21 @@ print("hellow world")
 # # (<class '__main__.C'>, <class '__main__.A'>, <class '__main__.B'>, <class 'object'>)
 
 # 格式化字符串 %s-string %d-int %.2f-float
-info_tuple = ("小明", 21, 1.85)
-print("%s 年龄是 %d 身高是 %.2f" % info_tuple)
+# info_tuple = ("小明", 21, 1.85)
+# print("%s 年龄是 %d 身高是 %.2f" % info_tuple)
+
+# 访问类中的私有方法和私有属性
+# class Women:
+#     def __init__(self, age):
+#         self.age = age
+#         self.__weight = 55
+#
+#     def __str__(self):
+#         return ('年龄%s ; 体重%s' % (self.age, self.__weight))
+#
+#
+# nana = Women(18)
+# print(nana)
+# print(nana.age)
+# # print(nana.__weight) # 会报错 object has no attribute '__weight'
+# print(nana._Women__weight)  # 可以正常访问
