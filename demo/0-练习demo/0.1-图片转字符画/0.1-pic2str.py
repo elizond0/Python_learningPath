@@ -3,8 +3,9 @@
 # 调用方法：python pic2str.py [目标图片文件名，包括后缀] -o [输出文件名] --width [宽度] --height [高度]
 
 
-# 引入图像处理库pillow(PIL)
+# 引入图像处理库pillow(PIL) $ pip3 install Pillow
 from PIL import Image
+
 # 用于管理命令行参数输入
 import argparse
 
@@ -12,10 +13,10 @@ import argparse
 parser = argparse.ArgumentParser()
 
 # 定义输入文件、输出文件、输出字符画的宽高
-parser.add_argument('file')
-parser.add_argument('-o', '--output')
-parser.add_argument('--width', type=int, default=80)
-parser.add_argument('--height', type=int, default=80)
+parser.add_argument("file")
+parser.add_argument("-o", "--output")
+parser.add_argument("--width", type=int, default=80)
+parser.add_argument("--height", type=int, default=80)
 
 # 解析并获取参数
 args = parser.parse_args()
@@ -31,14 +32,16 @@ WIDTH = args.width
 OUTPUT = args.output
 
 # 灰度字符集
-ascii_char = list("$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^`'. ")
+ascii_char = list(
+    "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^`'. "
+)
 
 
 # RGBA值映射成灰度值
 def get_char(r, g, b, alpha=256):
     # 判断alpha值,为0时表示图片中该位置为空白
     if alpha == 0:
-        return ' '
+        return " "
 
     # 获取字符集的长度
     length = len(ascii_char)
@@ -54,9 +57,9 @@ def get_char(r, g, b, alpha=256):
 
 
 # 处理图片
-if __name__ == '__main__':  # 表示此py文件被作为模块import引入时，这部分代码不会被执行
+if __name__ == "__main__":  # 表示此py文件被作为模块import引入时，这部分代码不会被执行
     # 初始化输出的字符串值
-    txt = ''
+    txt = ""
 
     # 使用PIL的Image.open获取图片对象
     im = Image.open(IMG)
@@ -71,17 +74,17 @@ if __name__ == '__main__':  # 表示此py文件被作为模块import引入时，
             # im.getpixel((col.row))获取到坐标未知的RGB像素值，返回一个元组，使用*将元组拆包作为参数传递给函数
             txt += get_char(*im.getpixel((col, row)))
         # 换行
-        txt += '\n'
+        txt += "\n"
 
     # 打印输出字符串txt
     print(txt)
 
     # 如果执行时配置了输出文件，将打开文件并把txt输出到指定文件中，如果没有则默认输出到output.txt
     if OUTPUT:
-        with open(OUTPUT, 'w') as f:
+        with open(OUTPUT, "w") as f:
             f.write(txt)
     else:
-        with open('output.txt', 'w') as f:
+        with open("output.txt", "w") as f:
             f.write(txt)
 
 # 附录 ArgumentParser.add_argument(name or flags...[, action][, nargs][, const][, default][, type]

@@ -1,8 +1,8 @@
-# 个性二维码
+# 个性二维码 $ pip3 install MyQR
 from MyQR import myqr
 
 # 1. 生成标准二维码图片 qrcode.png
-myqr.run('https://www.baidu.com')
+myqr.run("https://www.baidu.com")
 
 # 附上myqr.run()方法参数
 # 参数	含义	详细
@@ -17,16 +17,20 @@ myqr.run('https://www.baidu.com')
 # save_dir	存储位置	str，默认存储位置是当前目录
 
 # 2. 带底色图片的二维码
-myqr.run(words='https://www.baidu.com',
-         picture='./test.jpg',
-         colorized=True,
-         save_name='qrcode_with_pic.png')
+myqr.run(
+    words="https://www.baidu.com",
+    picture="./test.jpg",
+    colorized=True,
+    save_name="qrcode_with_pic.png",
+)
 
 # 3. gif动态二维码
-myqr.run(words='https://www.baidu.com',
-         picture='./gakki.gif',
-         colorized=True,
-         save_name='qrcode_with_gif.gif')
+myqr.run(
+    words="https://www.baidu.com",
+    picture="./gakki.gif",
+    colorized=True,
+    save_name="qrcode_with_gif.gif",
+)
 
 # 4. myqr库简述  源码地址https://github.com/sylnsfar/qrcode/blob/master/README-cn.md
 # 1 数据分析MyQR/mylibs/constan.py
@@ -40,6 +44,4 @@ myqr.run(words='https://www.baidu.com',
 # 5 生成二维码MyQR/mylibs/draw.py
 # 6 合并自定义图片
 # 调用了 Pillow 库读取图片操作，将新家的图片覆盖原有图片并生成
-
-
 
