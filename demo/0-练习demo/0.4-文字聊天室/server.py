@@ -126,8 +126,7 @@ class ChatSession(asynchat.async_chat):
 class CommandHandler(object):
     # 响应未知命令，通过asynchat.async_chat.push方法发送消息
     def unknown(self, session, cmd):
-        # session.push(("未知命令 {} \n".format(cmd).encode("utf-8")))
-        session.push(("Unknown command {} \n".format(cmd).encode("utf-8")))
+        session.push(("未知命令 {} \n".format(cmd).encode("utf-8")))
 
     # 命令处理
     def handle(self, session, line):
@@ -180,7 +179,6 @@ class LoginRoom(Room):
     # 连接成功
     def add(self, session):
         Room.add(self, session)
-        # session.push(b'连接成功')
         session.push(b"Connect Success")
 
     # 用户登录
@@ -208,15 +206,16 @@ class LogoutRoom(Room):
 class ChatRoom(Room):
     # 广播新用户进入
     def add(self, session):
+        # b"Login Success" sesssion会推送名为Login Susscess的消息给客户端，客户端接收到之后进行相应操作
         session.push(b"Login Success")
-        self.broadcast((session.name + " has entered the room.\n").encode("utf-8"))
+        self.broadcast((session.name + " 进入房间.\n").encode("utf-8"))
         self.server.users[session.name] = session
         Room.add(self, session)
 
     # 广播用户离开
     def remove(self, session):
         Room.remove(self, session)
-        self.broadcast((session.name + " has left the room.\n").encode("utf-8"))
+        self.broadcast((session.name + " 离开房间.\n").encode("utf-8"))
 
     # 客户端发送消息
     def do_say(self, session, line):
@@ -232,8 +231,8 @@ class ChatRoom(Room):
 if __name__ == "__main__":
     s = ChatServer(PORT)
     try:
-        print('chat serve run at "127.0.0.1:{0}"'.format(PORT))
+        print('服务运行于 "127.0.0.1:{0}"'.format(PORT))
         asyncore.loop()
     except KeyboardInterrupt:
-        print("chat server exit")
+        print("服务关闭")
 
