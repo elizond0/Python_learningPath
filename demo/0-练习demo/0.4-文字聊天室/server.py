@@ -206,7 +206,8 @@ class LogoutRoom(Room):
 class ChatRoom(Room):
     # 广播新用户进入
     def add(self, session):
-        # b"Login Success" sesssion会推送名为Login Susscess的消息给客户端，客户端接收到之后进行相应操作
+        # b"Login Success" 用于telnetlib.Telnet对象
+        # sesssion会推送名为Login Susscess的消息给客户端，客户端接收到之后进行相应操作
         session.push(b"Login Success")
         self.broadcast((session.name + " 进入房间.\n").encode("utf-8"))
         self.server.users[session.name] = session
@@ -223,7 +224,8 @@ class ChatRoom(Room):
 
     # 查看在线用户
     def do_look(self, session, line):
-        session.push(b"Online Users:\n")
+        session.push(("在线用户:\n").encode("utf-8"))
+        # session.push(b"Online Users:\n")
         for other in self.sessions:
             session.push((other.name + "\n").encode("utf-8"))
 
