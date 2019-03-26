@@ -7,7 +7,6 @@
 print("hellow world")
 """
 
-
 # print("hellowwww")
 
 # 输入与输出
@@ -649,3 +648,31 @@ print("hellow world")
 # print(nana.age)
 # # print(nana.__weight) # 会报错 object has no attribute '__weight'
 # print(nana._Women__weight)  # 可以正常访问
+
+# print(not(True and True and False))
+
+# *5的方式其实并没有修改引用地址,与+=原理相同，所以第一行的列修改后，所有行都会跟着改动
+# list = [[0] * 4] * 5
+# list[0][0] = 222
+# print(list)
+# [[222, 0, 0, 0], [222, 0, 0, 0], [222, 0, 0, 0], [222, 0, 0, 0], [222, 0, 0, 0]].
+
+# print(list) 通过遍历则没有这个问题
+# print([([0] * 3) for i in range(4)])
+
+# a = [1, 2, 3, 4, 5]  # 列表为可变对象
+# b = [-1, -2, -3]
+
+#
+# def func1(a, b):
+#     a += [8, 9]
+#     b = b + [8, 9]
+#
+#
+# func1(a, b)
+# print(a, b)
+# # a= [1, 2, 3, 4, 5, 8, 9];b= [-1, -2, -3]
+
+list2=[([0] * 4) for i in range(5)]
+list2[0][0]=555
+print(list2)
