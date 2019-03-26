@@ -55,7 +55,7 @@ class Polygon(object):
     __metaclass__ = ABCMeta
 
     def __init__(self, points_list, **kwargs):
-        print(points_list)
+        # print(points_list)
         for point in points_list:
             # 断言：遍历点阵列表中的对象是Point的实例
             assert isinstance(point, Point), "input must be Point type"
