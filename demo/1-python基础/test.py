@@ -673,6 +673,22 @@ print("hellow world")
 # print(a, b)
 # # a= [1, 2, 3, 4, 5, 8, 9];b= [-1, -2, -3]
 
-list2=[([0] * 4) for i in range(5)]
-list2[0][0]=555
-print(list2)
+# list2=[([0] * 4) for i in range(5)]
+# list2[0][0]=555
+# print(list2)
+
+# def fab(max):
+#     n, a, b = 0, 0, 1
+#     while n < max:
+#         yield b
+#         # print b
+#         a, b = b, a + b
+#         n = n + 1
+#
+# print(fab(5))
+#
+# for n in fab(5):
+#     print(n)
+
+
+

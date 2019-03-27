@@ -1,7 +1,7 @@
 import wx
 from math import pi
 
-
+# todo 平方，开方，sin，cos
 class CalculatorFrame(wx.Frame):
     def __init__(self, parent=None, id=-1, title="计算器", pos=(0, 0), size=(400, 250)):
         super(CalculatorFrame, self).__init__(
@@ -105,8 +105,6 @@ class CalculatorFrame(wx.Frame):
     def OnExit(self, event):
         # 退出
         self.Close()
-
-    # todo 平方，开方，sin，cos
 
 
 if __name__ == "__main__":

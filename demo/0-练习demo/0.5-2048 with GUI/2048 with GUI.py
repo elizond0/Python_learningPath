@@ -3,7 +3,7 @@ import os
 import random
 import copy
 
-
+# todo 增加行列参数，并完善图形界面布局；重开按钮增加对话框确认
 class Frame(wx.Frame):
     def __init__(self, title, rows=4, cols=4):
         super().__init__(
