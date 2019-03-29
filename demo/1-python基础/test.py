@@ -7,6 +7,7 @@
 print("hellow world")
 """
 
+
 # print("hellowwww")
 
 # 输入与输出
@@ -690,5 +691,24 @@ print("hellow world")
 # for n in fab(5):
 #     print(n)
 
+# name = 'test'
+# for x in name:
+#     print(x)
+# else:
+#     print("没有数据")
+#
 
 
+def func(a, b, *args, **kwargs):
+    print("a:", a)
+    print("b:", b)
+    print("args:", args)
+    print("kwargs:",kwargs)
+    for key, value in kwargs.items():
+        print(key, ":", value)
+
+
+c = (3, 4, 5)
+d = ["a", "b", "c"]
+f = {"name": "abc"}
+func(1, 2, 6, 7, c, d, **f)
