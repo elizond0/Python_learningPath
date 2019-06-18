@@ -22,7 +22,8 @@ vcode = pytesseract.image_to_string(im)
 # vcode = pytesseract.image_to_string(im, lang="chi_sim") # lang 语言
 
 print(vcode)
-# 准确度很低，优化方案：
-# 1.通过训练模型来增强
-# 2.彩色转灰度，灰度转二值，二值图像识别
+# 准确度很低，[优化方案](https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality):
+# 图像处理:重新缩放;二值化;去噪;旋转/纠偏;边界;透明度/Alpha通道;工具/库
+# 页面分割方法
+# 字典，单词列表和模式
 
